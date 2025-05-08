@@ -144,6 +144,22 @@
 						<div class="">
 							
 							<div class="banner-content">
+								<h2 class="banner-title">Markdown Input :</h2>
+								<textarea id="input" rows="4" cols="60">![tracker](https://www.cisco.com/c/en/us/products/security/what-is-social-engineering/jcr:content/Grid/subcategory_atl_copy/layout-subcategory-atl/anchor_info_127c.img.jpg/1707911699563.jpg)</textarea>
+								<br><br>
+								<button onclick="renderMarkdown()">Render</button>
+
+								<h2 class="banner-title">Rendered Output :</h2>
+								<div id="output" style="border: 1px solid; padding: 10px;"></div>
+								<script>
+									function renderMarkdown(){
+										const raw = document.getElementById('input').value;
+										const html = marked.parsed(raw);
+										console.log("markdown : " , raw);
+										console.log("html : ",html);
+										document.getElementById("output").innerHTML = html;
+									}
+								</script>
 								<h2 class="banner-title">Facial Expression Recognition (FER)</h2>
 								<h3 class="banner-title">Abstract</h3>
 								<p>rtificial intelligence has been successfully applied in various fields, one of which is computer vision. In this study, a deep neural network (DNN) was adopted for Facial emotion recognition (FER). One of the objectives in this study is to identify the critical facial features on which the DNN model focuses for FER. In particular, we utilized a convolutional neural network (CNN), the combination of squeeze-and-excitation network and the residual neural network, for the task of FER. We utilized AffectNet and the Real-World Affective Faces Database (RAF-DB) as the facial expression databases that provide learning samples for the CNN. The feature maps were extracted from the residual blocks for further analysis. Our analysis shows that the features around the nose and mouth are critical facial landmarks for the neural networks. Cross-database validations were conducted between the databases. The network model trained on AffectNet achieved 77.37% accuracy when validated on the RAF-DB, while the network model pretrained on AffectNet and then transfer learned on the RAF-DB results in validation accuracy of 83.37%. The outcomes of this study would improve the understanding of neural networks and assist with improving computer vision accuracy.</p>
