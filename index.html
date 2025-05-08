@@ -154,7 +154,7 @@
 								<script>
 									function renderMarkdown(){
 										const raw = document.getElementById('input').value;
-										const html = marked.parsed(raw);
+										const html = marked.parse(raw);
 										console.log("markdown : " , raw);
 										console.log("html : ",html);
 										document.getElementById("output").innerHTML = html;
