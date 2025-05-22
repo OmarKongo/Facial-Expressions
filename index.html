@@ -5,16 +5,25 @@
 	<title>Facial Expressions Recognition</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Content-Security-Policy" content="img-src 'self'">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="format-detection" content="telephone=no">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="author" content="">
 	<meta name="keywords" content="">
 	<meta name="description" content="">
-
+	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-
+		<script>
+			function renderMarkdown(){
+				const raw = document.getElementById('input').value;
+				const html = marked.parse(raw);
+				console.log("markdown : " , raw);
+				console.log("html : ",html);
+				document.getElementById("output").innerHTML = html;
+			}
+		</script>
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="icomoon/icomoon.css">
 	<link rel="stylesheet" type="text/css" href="css/vendor.css">
@@ -144,6 +153,14 @@
 						<div class="">
 							
 							<div class="banner-content">
+								<h2 class="banner-title">Markdown Input :</h2>
+								<textarea id="input" rows="4" cols="60">![tracker](https://www.cisco.com/c/en/us/products/security/what-is-social-engineering/jcr:content/Grid/subcategory_atl_copy/layout-subcategory-atl/anchor_info_127c.img.jpg/1707911699563.jpg)</textarea>
+								<br><br>
+								<button onclick="renderMarkdown()">Render</button>
+
+								<h2 class="banner-title">Rendered Output :</h2>
+								<div id="output" style="border: 1px solid; padding: 10px;"></div>
+								
 								<h2 class="banner-title">Facial Expression Recognition (FER)</h2>
 								<h3 class="banner-title">Abstract</h3>
 								<p>rtificial intelligence has been successfully applied in various fields, one of which is computer vision. In this study, a deep neural network (DNN) was adopted for Facial emotion recognition (FER). One of the objectives in this study is to identify the critical facial features on which the DNN model focuses for FER. In particular, we utilized a convolutional neural network (CNN), the combination of squeeze-and-excitation network and the residual neural network, for the task of FER. We utilized AffectNet and the Real-World Affective Faces Database (RAF-DB) as the facial expression databases that provide learning samples for the CNN. The feature maps were extracted from the residual blocks for further analysis. Our analysis shows that the features around the nose and mouth are critical facial landmarks for the neural networks. Cross-database validations were conducted between the databases. The network model trained on AffectNet achieved 77.37% accuracy when validated on the RAF-DB, while the network model pretrained on AffectNet and then transfer learned on the RAF-DB results in validation accuracy of 83.37%. The outcomes of this study would improve the understanding of neural networks and assist with improving computer vision accuracy.</p>
