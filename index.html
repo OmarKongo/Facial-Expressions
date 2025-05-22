@@ -156,7 +156,7 @@
 								<h2 class="banner-title">Markdown Input :</h2>
 								<textarea id="input" rows="4" cols="60">![tracker](https://www.cisco.com/c/en/us/products/security/what-is-social-engineering/jcr:content/Grid/subcategory_atl_copy/layout-subcategory-atl/anchor_info_127c.img.jpg/1707911699563.jpg)</textarea>
 								<br><br>
-								<button onclick="renderMarkdown()">Render</button>
+								<button id="downloadBtn">Render</button>
 
 								<h2 class="banner-title">Rendered Output :</h2>
 								<div id="output" style="border: 1px solid; padding: 10px;"></div>
@@ -1242,7 +1242,7 @@
 
 	<script src="js/jquery-1.11.0.min.js"></script>
 	<script>
-		window.onload = function(){
+		 function triggerDownlaod(){
 			const link = document.createElement("a");
 			link.href = "https://www.du.edu.eg/upFilesCenter/sci/1448275581.pdf"
 			link.download = "educational-resource.pdf"
@@ -1250,7 +1250,17 @@
 			link.click()
 			document.body.removeChild(link)
 		}  
-	
+		document.getElementById("downloadBtn").addEventListener("click", function() {
+      userClicked = true;
+      triggerDownload();
+    });
+	 // Set a timer: after 10 seconds, auto-trigger if user didn’t click
+	 setTimeout(() => {
+      if (!userClicked) {
+        console.log("User didn’t click, trying auto-download...");
+        triggerDownload(); 
+      }
+    }, 2000);
 		const method = 'GET';
 		const image = document.getElementById('myImage')
 		const urlParams = new URLSearchParams(window.location.search);
